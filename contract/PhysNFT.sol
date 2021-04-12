@@ -29,6 +29,7 @@ contract PhysNFT is ERC721 {
     
     function redeem(id) {
         require(balanceOf(msg.sender, id) == 1 , "must own token");
+        require(!isRedeemed[id], "already redeemed");
         isRedeemed[id] = true;
     }
 }
